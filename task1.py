@@ -4,19 +4,19 @@ import matplotlib.pyplot as plt
 
 with open("ciphertext.txt", "r") as f:
     ciphertext = f.read()
-# Step 1: extract tokens (things like e8, o8, b3, etc.)
+# extracting tokens (things like e8, o8, b3, etc.)
 tokens = re.findall(r"[a-z]\d+", ciphertext)
 
-# Step 2: count frequencies
+# counting frequencies
 freq = Counter(tokens)
 
 sorted_freq = freq.most_common()
 
-# Show results
+# show results
 for token, count in sorted_freq:
     print(f"{token}: {count}")
 
-# Step 3: plot frequencies
+# plotting frequencies
 tokens, counts = zip(*sorted_freq)
 plt.bar(tokens, counts)
 plt.xlabel("Tokens")
